@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStocksTable extends Migration
+class CreateSkusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,9 @@ class CreateStocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('stocks', function (Blueprint $table) {
+        Schema::create('skus', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('sku_id');
-            $table->float('price');
-            $table->integer('qty');
-            $table->integer('status')->default(1);
-            $table->text('description')->nullable();
-            $table->integer('category_id');
-            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +27,6 @@ class CreateStocksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stocks');
+        Schema::dropIfExists('skus');
     }
 }

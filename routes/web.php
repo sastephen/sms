@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SkuController;
 use App\Http\Controllers\StockController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,11 @@ Route::get('/', function () {
 Route::resource('/admin', AdminController::class)->middleware('auth');
 Route::resource('/stock', StockController::class)->middleware('auth');
 Route::resource('/category', CategoryController::class)->middleware('auth');
+Route::resource('/sku', SkuController::class)->middleware('auth');
+
+Route::put('/stock/{stock}/active', [StockController::class, 'active'])->middleware('auth');
+Route::put('/stock/{stock}/disable', [StockController::class, 'disable'])->middleware('auth');
+
 
 Auth::routes();
 

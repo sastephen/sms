@@ -83,6 +83,10 @@
                             <a href="{{ route('category.index') }}">
                                 <i class="fas fa-pie-chart"></i>Categories</a>
                         </li>
+                        <li>
+                            <a href="{{ route('sku.index') }}">
+                                <i class="fas fa-list-ol"></i>SKU</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -110,6 +114,10 @@
                         <li>
                             <a href="{{ route('category.index') }}">
                                 <i class="fas fa-pie-chart"></i>Categories</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('sku.index') }}">
+                                <i class="fas fa-list-ol"></i>SKU</a>
                         </li>
                     </ul>
                 </nav>

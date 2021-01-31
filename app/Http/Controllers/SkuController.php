@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Sku;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class SkuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::latest()->get();
-        return view('admin.category.index',compact('categories'));
+        $skus = Sku::latest()->get();
+        return view('admin.sku.index',compact('skus'));
     }
 
     /**
@@ -36,11 +36,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category();
-        $category->name = $request->name;
-        $category->save();
+        $sku = new Sku();
+        $sku->name = $request->name;
+        $sku->save();
 
-        return redirect()->back()->with('message', 'Category Created successfully');
+        return redirect()->back()->with('message', 'Sku Created successfully');
     }
 
     /**
@@ -72,14 +72,14 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $category)
+    public function update(Request $request, $sku)
     {
-        // dd($category);
-        $category = Category::find($category);
-        $category->name = $request->name;
-        $category->save();
+        // dd($sku);
+        $sku = Sku::find($sku);
+        $sku->name = $request->name;
+        $sku->save();
 
-        return redirect()->back()->with('message', 'Category Updated successfully');
+        return redirect()->back()->with('message', 'Sku Updated successfully');
     }
 
     /**
@@ -88,9 +88,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Sku $sku)
     {
-        $category->delete();
-        return back()->with('message', 'Category remove successfully ');
+        $sku->delete();
+        return back()->with('message', 'Sku remove successfully ');
     }
 }

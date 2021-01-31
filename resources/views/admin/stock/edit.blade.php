@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="">
     <a href="{{ route('stock.index') }}" class="btn btn-success">Back</a>
     <div class="row justify-content-center">
         <!-- /.card-header -->
@@ -37,6 +37,17 @@
                         <p class="alert alert-danger">{{ $message }}</p>
                     @enderror
                 </div>
+                <div class="form-group">
+                    <label for="">SKU</label>
+                    <select name="sku_id" id="" class="form-control">
+                    <option value="">Select SKU</option>
+                    @foreach ($skus as $sku)
+                        <option value="{{ $sku->id }}" {{ $sku->id == $stock->sku_id ? 'selected' : '' }} class="form-control">{{ $sku->name }}</option>
+                    @endforeach
+                </select>
+                @error('category')
+                    <p class="alert alert-danger">{{ $message }}</p>
+                @enderror
                 <div class="form-group">
                     <label for="">Category</label>
                     <select name="category" id="" class="form-control">

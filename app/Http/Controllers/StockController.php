@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StockRequest;
 use App\Models\Category;
+use App\Models\Sku;
 use App\Models\Stock;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class StockController extends Controller
      */
     public function index()
     {
-        $stocks = Stock::all();
+        $stocks = Stock::latest()->get();
         return view('admin.stock.index',compact('stocks'));
     }
 
@@ -29,7 +30,8 @@ class StockController extends Controller
     {
         $stocks = Stock::all();
         $categories = Category::all();
-        return view('admin.stock.create',compact('stocks', 'categories'));
+        $skus = Sku::all();
+        return view('admin.stock.create',compact('stocks', 'categories', 'skus'));
     }
 
     /**
@@ -49,6 +51,7 @@ class StockController extends Controller
         $stock->price = $request->price;
         $stock->qty = $request->qty;
         $stock->description = $request->description;
+        $stock->sku_id = $request->sku_id;
         $stock->category_id = $request->category;
         if($request->stock_image){
             $imageName = date('YmdHis') . "." . request()->stock_image->getClientOriginalExtension();
@@ -82,7 +85,8 @@ class StockController extends Controller
         // dd($stock);
         $stock = Stock::find($stock);
         $categories = Category::all();
-        return view('admin.stock.edit',compact('stock', 'categories'));
+        $skus = Sku::all();
+        return view('admin.stock.edit',compact('stock', 'categories', 'skus'));
     }
 
     /**
@@ -99,6 +103,7 @@ class StockController extends Controller
         $stock->price = $request->price;
         $stock->qty = $request->qty;
         $stock->description = $request->description;
+        $stock->sku_id = $request->sku_id;
         $stock->category_id = $request->category;
 
         if($request->stock_image){
@@ -121,5 +126,19 @@ class StockController extends Controller
     {
         $stock->delete();
         return back()->with('message', 'Stock Deleted successfully');
+    }
+
+    public function active(Stock $stock)
+    {
+        $stock->status = config('res.stock_status.active');
+        $stock->save();
+        return redirect('stock')->with('message', 'Status Updated successfully');
+    }
+
+    public function disable(Stock $stock)
+    {
+        $stock->status = config('res.stock_status.disable');
+        $stock->save();
+        return redirect('stock')->with('message', 'Status Updated successfully');
     }
 }

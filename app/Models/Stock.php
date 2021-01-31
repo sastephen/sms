@@ -12,4 +12,8 @@ class Stock extends Model
     {
         return $this->belongsTo('App\Models\Category');
     }
+    public function sku()
+    {
+        return $this->belongsTo('App\Models\Sku');
+    }
 }
