@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Stock;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $totalStocks = Stock::count('id');
+        $totalStockPrice = Stock::sum('price');
+        $totalCategory = Category::count('name');
+
+        $latestStocks = Stock::latest()->limit(8)->get();
+        $latestCategories = Category::latest()->limit(8)->get();
+        return view('home',compact('totalStocks','totalStockPrice', 'totalCategory', 'latestStocks','latestCategories'));
     }
 }

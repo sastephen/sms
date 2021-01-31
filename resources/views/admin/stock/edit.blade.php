@@ -56,7 +56,7 @@
                         <p class="alert alert-danger">{{ $message }}</p>
                     @enderror
                 </div>
-                <button class="btn btn-success">Submit</button>
+                <button class="btn btn-success">Update</button>
             </form>
         </div>
         <!-- /.card-body -->

@@ -41,8 +41,8 @@ class StockController extends Controller
     public function store(StockRequest $request)
     {
 
-        $imageName = date('YmdHis') . "." . request()->stock_image->getClientOriginalExtension();
-        request()->stock_image->move(public_path('images'), $imageName);
+        // $imageName = date('YmdHis') . "." . request()->stock_image->getClientOriginalExtension();
+        // request()->stock_image->move(public_path('images'), $imageName);
 
         $stock = new Stock();
         $stock->name = $request->name;
@@ -50,7 +50,11 @@ class StockController extends Controller
         $stock->qty = $request->qty;
         $stock->description = $request->description;
         $stock->category_id = $request->category;
+        if($request->stock_image){
+            $imageName = date('YmdHis') . "." . request()->stock_image->getClientOriginalExtension();
+            request()->stock_image->move(public_path('images'), $imageName);
         $stock->image = $imageName;
+        }
         $stock->save();
 
         return redirect('/stock')->with('message', 'Stock Created successfully');
