@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="">
+<div class="section__content section__content--p30">
     <a href="{{ route('stock.index') }}" class="btn btn-success">Back</a>
     <div class="row justify-content-center">
         <!-- /.card-header -->

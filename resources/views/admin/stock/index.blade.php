@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="">
+<div class="section__content section__content--p30">
     <a href="{{ route('stock.create') }}" class="btn btn-success">Add New</a>
     <div class="row justify-content-center">
         <div class="col-md-12">

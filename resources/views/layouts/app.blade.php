@@ -40,7 +40,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -348,10 +348,10 @@
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-
+                {{-- <div class="section__content section__content--p30"> --}}
+                    {{-- <div class="container-fluid"> --}}
                         @yield('content')
+                        
                 
                         <div class="row">
                             <div class="col-md-12">
@@ -360,16 +360,16 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+
+                    {{-- </div> --}}
+                    
+                {{-- </div> --}}
+                
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>
     </div>   
-    
-
-
 
     <!-- REQUIRED SCRIPTS -->
 

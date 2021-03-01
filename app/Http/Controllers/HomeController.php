@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Sku;
 use App\Models\Stock;
 use Illuminate\Http\Request;
 
@@ -29,8 +30,9 @@ class HomeController extends Controller
         $totalStockPrice = Stock::sum('price');
         $totalCategory = Category::count('name');
 
+        $latestSKU = Sku::latest()->limit(8)->get();
         $latestStocks = Stock::latest()->limit(8)->get();
         $latestCategories = Category::latest()->limit(8)->get();
-        return view('home',compact('totalStocks','totalStockPrice', 'totalCategory', 'latestStocks','latestCategories'));
+        return view('home',compact('totalStocks', 'latestSKU','totalStockPrice', 'totalCategory', 'latestStocks','latestCategories'));
     }
 }
