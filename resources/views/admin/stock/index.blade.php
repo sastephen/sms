@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="">
     <a href="{{ route('stock.create') }}" class="btn btn-success">Add New</a>
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -98,16 +98,24 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <img src="{{ url('/images/'. $stock->image) }}" width="50%"
-                                            alt="{{ $stock->name }}"><br><br>
-    
+
+                                        <div class="row py-2">
+
+                                            <div class="col-6">
+                                                <img src="{{ url('/images/'. $stock->image) }}" width="50%" alt="{{ $stock->name }}">
+                                            </div>
+                                            <div class="col-6">
+
+                                                {!! QrCode::generate( route('item', $stock->id)  ); !!}
+                                            </div>
+                                        </div>
                                         <h5><b>Name : </b>{{ $stock->name }}</h5>
-                                        <h5><b>Description : </b>{{ $stock->description }}</h5>
                                         <h5><b>SKU : </b>{{ $stock->sku->name }}</h5>
                                         <h5><b>Category : </b>{{ $stock->category->name }}</h5>
                                         <h5><b>Price : </b>{{ $stock->price }}</h5>
                                         <h5><b>Qty : </b>{{ $stock->qty }}</h5>
                                         <h5><b>Status : </b>{{ $stock->status ? 'Active' : 'Disable' }} </h5>
+                                        <h5><b>Description : </b>{{ $stock->description }}</h5>
     
                                     </div>
                                     <div class="modal-footer">
