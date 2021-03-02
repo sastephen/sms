@@ -11,8 +11,9 @@
 
     <!-- Fontfaces CSS-->
     <link href="/css/font-face.css" rel="stylesheet" media="all">
-    <link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    {{-- <link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all"> --}}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <link href="/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
@@ -36,7 +37,7 @@
     <link href="/css/theme.css" rel="stylesheet" media="all">
 
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -81,7 +82,7 @@
                         </li>
                         <li>
                             <a href="{{ route('category.index') }}">
-                                <i class="fas fa-pie-chart"></i>Categories</a>
+                                <i class="fas fa-chart-pie"></i>Categories</a>
                         </li>
                         <li>
                             <a href="{{ route('sku.index') }}">
@@ -113,7 +114,7 @@
                         </li>
                         <li>
                             <a href="{{ route('category.index') }}">
-                                <i class="fas fa-pie-chart"></i>Categories</a>
+                                <i class="fas fa-chart-pie"></i>Categories</a>
                         </li>
                         <li>
                             <a href="{{ route('sku.index') }}">
@@ -350,6 +351,8 @@
             <div class="main-content">
                 {{-- <div class="section__content section__content--p30"> --}}
                     {{-- <div class="container-fluid"> --}}
+                        @include('layouts.alert')
+
                         @yield('content')
                         
                 

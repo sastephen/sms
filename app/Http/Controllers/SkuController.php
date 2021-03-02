@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryRequest;
 use App\Models\Sku;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,7 @@ class SkuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
         $sku = new Sku();
         $sku->name = $request->name;
@@ -72,7 +73,7 @@ class SkuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $sku)
+    public function update(CategoryRequest $request, $sku)
     {
         // dd($sku);
         $sku = Sku::find($sku);

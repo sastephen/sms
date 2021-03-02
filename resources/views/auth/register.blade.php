@@ -50,9 +50,9 @@
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <label>Username</label>
+                                    <label>Name</label>
                                     <input id="name" type="text"
-                                        class="form-control @error('name') is-invalid @enderror" name="name"
+                                        class="form-control au-input au-input--full @error('name') is-invalid @enderror" name="name"
                                         value="{{ old('name') }}" autocomplete="name" autofocus>
 
                                     @error('name')
@@ -64,7 +64,7 @@
                                 <div class="form-group">
                                     <label>Email Address</label>
                                     <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        class="form-control au-input au-input--full @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" autocomplete="email">
 
                                     @error('email')
@@ -77,7 +77,7 @@
                                 <div class="form-group">
                                     <label>Password</label>
                                     <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        class="form-control au-input au-input--full @error('password') is-invalid @enderror" name="password"
                                         autocomplete="new-password">
 
                                     @error('password')
@@ -90,7 +90,7 @@
                         </div>
                         <div class="form-group">
                             <label>Confirm Password</label>
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                            <input id="password-confirm" type="password" class="form-control au-input au-input--full" name="password_confirmation"
                     autocomplete="new-password">
 
                             
@@ -106,7 +106,7 @@
                         <div class="register-link">
                             <p>
                                 Already have account?
-                                <a href="{{ route('login') }}">Sign In</a>
+                                <a class="text-success" href="{{ route('login') }}">Sign In</a>
                             </p>
                         </div>
                     </div>
