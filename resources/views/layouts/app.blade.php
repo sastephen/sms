@@ -359,7 +359,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
-                                    <p>Copyright © 2021. All rights reserved.</p>
+                                    <p>Copyright © 2021. All rights reserved. <a href="https://github.com/sastephen/sms">Code</a></p>
                                 </div>
                             </div>
                         </div>
